@@ -15,7 +15,7 @@
   \**********************/
 /***/ (() => {
 
-eval("let city = 'balti'\r\nconst link = 'https://api.openweathermap.org/data/2.5/weather?q=' + city + '&appid=5209bc1af9247ca22a92579a25e11d72'\r\n\r\nfetch(link, {\r\n    mode: 'cors'\r\n})\r\n    .then((response) => {\r\n        return response.json()\r\n    })\r\n    .then((obj) => {\r\n        console.log(obj)\r\n    })\r\n    .catch((err) => {\r\n        console.error(err)\r\n    });\n\n//# sourceURL=webpack://week-17-weather-app/./src/index.js?");
+eval("let city = 'balti'\r\nconst link = 'https://api.openweathermap.org/data/2.5/weather?q=' + city + '&appid=5209bc1af9247ca22a92579a25e11d72'\r\n\r\n// fetch(link, {\r\n//     mode: 'cors'\r\n// })\r\n//     .then((response) => {\r\n//         return response.json()\r\n//     })\r\n//     .then((obj) => {\r\n//         console.log(obj)\r\n//     })\r\n//     .catch((err) => {\r\n//         console.error(err)\r\n//     });\r\n\r\nconst getWeatherInfo = async () => {\r\n    const response = await fetch(link, { mode: 'cors' });\r\n    const weatherData = await response.json();\r\n    console.log(weatherData)\r\n}\r\n\n\n//# sourceURL=webpack://week-17-weather-app/./src/index.js?");
 
 /***/ })
 

@@ -6,10 +6,33 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <link rel="stylesheet" href="country-flag.css">
+    <script src="country-flag.js"></script>
     <title>Weatherer</title>
 </head>
 
 <body>
+    <main class='main'>
+        <div class="input-group m-3">
+            <input type="text" class="form-control" name="city-name" title="city-name" placeholder="City name"
+                aria-label="City name" aria-describedby="button-addon">
+            <button type="button" id="button-addon" class="btn btn-outline-primary">Search</button>
+        </div>
+        <div id="card" class="card" style="width: 25rem;">
+            <!-- <img src="..." class="card-img-top" alt="..."> -->
+            <div id="card-body" class="card-body">
+                <div id="title-div">
+                    <h5 class="card-title">
+
+                    </h5>
+                </div>
+                <p class="card-text"></p>
+                <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+        </div>
+    </main>
 
 
     <script src="main.js"></script>

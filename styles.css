@@ -2,12 +2,23 @@
     width: 15rem !important;
 }
 
+html,
+body {
+    height: 100%;
+}
+
 .main {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-content: center;
     align-items: center;
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    margin-top: -50px;
+    margin-left: -50px;
+    width: 100px;
+    height: 100px;
 }
 
 .loader {
@@ -15,7 +26,7 @@
     border-radius: 50%;
     border-top: 16px solid #3498db;
     width: 50px;
-    height: 50px;
+    height: 75px;
     animation: spin 2s linear infinite;
 }
 
@@ -27,4 +38,10 @@
     100% {
         transform: rotate(360deg);
     }
+}
+
+.error-msg {
+    margin: 1rem;
+    color: red;
+    font-size: 1.5rem;
 }

@@ -8,13 +8,15 @@ document.getElementById('button-addon').onclick = () => {
         return await response.json();
     }
     cityName.value = ""
+    if (document.getElementById('flag-par') !== null && document.getElementById('flag-par') !== undefined)
+        document.getElementById('flag-par').remove()
     const cityTitle = document.querySelector('.card-title')
     const cityText = document.querySelector('.card-text')
     getWeatherInfo().then(data => {
         const parentElement = document.getElementById("title-div");
         const flag = new CountryFlag(parentElement);
-        flag.selectByAlpha2(data.sys.country)
-        cityTitle.innerHTML = data.name + " Country: " + data.sys.country
+        flag.selectByAlpha2(data.sys.country.toLowerCase())
+        cityTitle.innerHTML = data.name + ", " + CountryFlag.getCountryByAlpha2(data.sys.country.toLowerCase()).name
         cityText.innerHTML = "Main temp: " + data.main.temp
             + "<br> Feels_like: " + data.main.feels_like
             + "<br> Wind speed: " + data.wind.speed

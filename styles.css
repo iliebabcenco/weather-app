@@ -1,10 +1,21 @@
 .input-group {
-    width: 15rem !important;
+    width: 25rem !important;
+}
+
+.top-nav {
+    margin: 0;
+    width: 100%;
+    text-align: center;
+    color: white;
+    font-size: 3rem;
+    padding-top: 1rem;
+    font-family: 'Brush Script MT';
 }
 
 html,
 body {
     height: 100%;
+    background: linear-gradient(45deg, #051937, #A8EB12);
 }
 
 .main {
@@ -13,12 +24,24 @@ body {
     justify-content: center;
     align-items: center;
     position: absolute;
-    top: 40%;
+    top: 45%;
     left: 50%;
     margin-top: -50px;
     margin-left: -50px;
     width: 100px;
     height: 100px;
+}
+
+.error-msg {
+    margin: 0.5rem;
+}
+
+.card-text-top {
+    margin-bottom: 0;
+}
+
+.card-text-bottom {
+    margin-bottom: 1rem;
 }
 
 .card {

@@ -13,12 +13,16 @@ body {
     justify-content: center;
     align-items: center;
     position: absolute;
-    top: 30%;
+    top: 40%;
     left: 50%;
     margin-top: -50px;
     margin-left: -50px;
     width: 100px;
     height: 100px;
+}
+
+.card {
+    width: 20rem;
 }
 
 .loader {

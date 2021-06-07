@@ -29,14 +29,26 @@ document.getElementById('button-addon').onclick = () => {
         cityText.innerHTML = "Main temp: " + data.main.temp
             + "<br> Feels_like: " + data.main.feels_like
             + "<br> Wind speed: " + data.wind.speed
+            + "<br> Description: " + data.weather[0].description
+        getImg(data.weather[0].description)
         loader.style.display = 'none'
         card.style.display = 'block'
         cardBody.style.display = 'block'
     }).catch(err => {
+        getImg('error')
         card.style.display = 'block'
         loader.style.display = 'none'
         cardBody.style.display = 'none'
         errorMsg.style.display = 'block'
     })
 }
+
+const img = document.querySelector('img');
+const getImg = (weather) => fetch('https://api.giphy.com/v1/gifs/translate?api_key=h8rR4RwX5BHSbpgpY866vFAQTa2xENrG&s=' + weather, { mode: 'cors' })
+    .then((response) => {
+        return response.json()
+    })
+    .then((response) => {
+        img.src = response.data.images.original.url
+    })
 

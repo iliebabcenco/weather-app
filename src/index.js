@@ -3,6 +3,9 @@ const card = document.querySelector('.card')
 const loader = document.querySelector('.loader')
 const cardBody = document.getElementById('card-body')
 const errorMsg = document.querySelector('.error-msg')
+const cityTextTop = document.querySelector('.card-text-top')
+let temp = 0
+let tempFeels = 0
 card.style.display = 'none'
 loader.style.display = 'none'
 errorMsg.style.display = 'none'
@@ -19,16 +22,21 @@ document.getElementById('button-addon').onclick = () => {
     if (document.getElementById('flag-par') !== null && document.getElementById('flag-par') !== undefined)
         document.getElementById('flag-par').remove()
     const cityTitle = document.querySelector('.card-title')
-    const cityText = document.querySelector('.card-text')
+
+    const cityText = document.querySelector('.card-text-bottom')
     getWeatherInfo().then(data => {
         card.appendChild(cardBody)
         const parentElement = document.getElementById("title-div");
         const flag = new CountryFlag(parentElement);
         flag.selectByAlpha2(data.sys.country.toLowerCase())
         cityTitle.innerHTML = data.name + ", " + CountryFlag.getCountryByAlpha2(data.sys.country.toLowerCase()).name
-        cityText.innerHTML = "Main temp: " + data.main.temp
-            + "<br> Feels_like: " + data.main.feels_like
-            + "<br> Wind speed: " + data.wind.speed
+        temp = data.main.temp
+        tempFeels = data.main.feels_like
+        switchKelvin(temp, tempFeels)
+
+        cityText.innerHTML =
+            "Humidity: " + data.main.humidity + " %"
+            + "<br> Wind speed: " + data.wind.speed + " m/s"
             + "<br> Description: " + data.weather[0].description
         getImg(data.weather[0].description)
         loader.style.display = 'none'
@@ -51,4 +59,16 @@ const getImg = (weather) => fetch('https://api.giphy.com/v1/gifs/translate?api_k
     .then((response) => {
         img.src = response.data.images.original.url
     })
-
+const changeBtn = document.querySelector('.btn-primary')
+const switchKelvin = (kelvins, kelvinFeels) => {
+    if (changeBtn.textContent.includes("Fahrenheit")) {
+        changeBtn.innerHTML = "Show in Celsius"
+        cityTextTop.innerHTML = "Main temperature: " + (Number.parseInt(kelvins) - 273.15).toFixed(2) + ' \u00B0C <br>'
+            + "Feels like: " + (Number.parseInt(kelvinFeels) - 273.15).toFixed(2) + ' \u00B0C'
+    } else {
+        changeBtn.innerHTML = "Show in Fahrenheit"
+        cityTextTop.innerHTML = "Main temperature: " + ((Number.parseInt(kelvins) - 273.15) * 9 / 5 + 32).toFixed(2) + ' \u00B0F <br>'
+            + "Feels like: " + ((Number.parseInt(kelvinFeels) - 273.15) * 9 / 5 + 32).toFixed(2) + ' \u00B0F'
+    }
+}
+changeBtn.onclick = () => switchKelvin(temp, tempFeels)

@@ -1,6 +1,10 @@
 let cityName = document.querySelector('.form-control').value
-console.log(cityName)
+const card = document.querySelector('.card')
+const loader = document.querySelector('.loader')
+card.style.display = 'none'
+loader.style.display = 'none'
 document.getElementById('button-addon').onclick = () => {
+    loader.style.display = 'block'
     cityName = document.querySelector('.form-control')
     let link = 'https://api.openweathermap.org/data/2.5/weather?q=' + cityName.value + '&appid=5209bc1af9247ca22a92579a25e11d72'
     const getWeatherInfo = async () => {
@@ -20,6 +24,8 @@ document.getElementById('button-addon').onclick = () => {
         cityText.innerHTML = "Main temp: " + data.main.temp
             + "<br> Feels_like: " + data.main.feels_like
             + "<br> Wind speed: " + data.wind.speed
+        loader.style.display = 'none'
+        card.style.display = 'block'
     })
 }
 

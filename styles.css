@@ -1,5 +1,10 @@
+.input-group>.form-control {
+    width: 20rem;
+}
+
 .input-group {
-    width: 25rem !important;
+    width: 25rem;
+    margin-bottom: 1rem;
 }
 
 .top-nav {
@@ -45,7 +50,12 @@ body {
 }
 
 .card {
-    width: 20rem;
+    width: 25rem;
+}
+
+.card-img-top {
+    max-width: 25rem;
+    max-height: 25rem;
 }
 
 .loader {

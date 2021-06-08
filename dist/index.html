@@ -5,10 +5,42 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles.css">
+    <title>Weatherer</title>
 </head>
 
 <body>
+    <nav class="top-nav">Weather App</nav>
+    <main class='main'>
+        <div class="input-group" id="search-bar">
+            <input type="text" class="form-control" name="city-name" title="city-name" placeholder="City name"
+                aria-label="City name" aria-describedby="button-addon">
+            <button type="button" id="button-addon" class="btn btn-success">Search</button>
+        </div>
+        <div class="loader"></div>
+        <div id="card" class="card">
+            <img class="card-img-top" alt="No image">
+
+            <div id="card-body" class="card-body">
+                <div id="title-div">
+                    <h5 class="card-title">
+
+                    </h5>
+                    <img class="flag-img" src="#" alt="No flag">
+                </div>
+                <hr>
+                <p class="card-text-top"></p>
+                <p class="card-text-bottom"></p>
+                <hr>
+                <a href="#" class="btn btn-primary">Show in Fahrenheit</a>
+            </div>
+            <p class="error-msg">Something wrong with your request</p>
+        </div>
+
+    </main>
 
 
     <script src="main.js"></script>
